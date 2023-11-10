@@ -19,7 +19,7 @@ class City(Point):
         self.population = population
 
     def show(self):
-        print(f"Город {self.name}, население {self.population} чел.")
+        print(f'Город {self.name}, население {self.population} чел.')
 
 
 class Mountain(Point):
@@ -28,8 +28,13 @@ class Mountain(Point):
         self.name = name
         self.height = height
 
+    def show(self):
+        print(f'Гора {self.name}, высота {self.height} м.')
 
-moscow = City(55.755864, 37.617698, 'Москва', 20000000)
-everest = Mountain(27.988056, 86.925278, 'Эверест', 8848)
 
-print(int(moscow.distance(everest)))
+moscow = City(55.755864, 37.617698, 'Москва', 11900000)
+everest = Mountain(27.988056, 86.925278, 'Эверест', 8849)
+
+moscow.show()
+everest.show()
+print(f'Расстояние от Москвы до Эвереста: {int(moscow.distance(everest))} км')

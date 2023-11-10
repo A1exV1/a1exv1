@@ -1,4 +1,5 @@
 import datetime as dt
+
 import requests
 
 DATABASE = {
@@ -47,7 +48,7 @@ def format_count_friends(count_friends):
 
 def what_time(city):
     offset = UTC_OFFSET[city]
-    city_time = dt.datetime.utcnow() + dt.timedelta(hours=offset)
+    city_time = dt.datetime.now() + dt.timedelta(hours=offset)
     f_time = city_time.strftime("%H:%M")
     return f_time
 
@@ -129,5 +130,6 @@ def runner():
     ]
     for query in queries:
         print(query, '-', process_query(query))
+
 
 runner()
