@@ -1,2 +1,6 @@
-s = "In 2010, someone paid 10k Bitcoin for two pizzas."
-print(s[-9:])
+import random
+
+random.seed(17)   # явно устанавливаем начальное значение для генератора случайных чисел
+
+for _ in range(10):
+    print(random.randint(1, 100))
