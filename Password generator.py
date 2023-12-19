@@ -42,6 +42,7 @@ def questions():
                 elif answer == 'n':
                     break
                 else:
+                    print('Такого ответа я не знаю...')
                     continue
 
         if chars != '':
@@ -66,6 +67,7 @@ def pwd_exit():
         print('Нужны еще пароли? Y/N')
         another_pwd = input().lower()
         if another_pwd != 'y' and another_pwd != 'n':
+            print('Такого ответа я не знаю...')
             continue
         else:
             break

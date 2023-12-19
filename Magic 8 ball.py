@@ -34,6 +34,7 @@ def game_exit():
         print('У тебя есть еще вопросы? Y/N')
         another_question = input().lower()
         if another_question != 'y' and another_question != 'n':
+            print('Такого ответа я не знаю...')
             continue
         else:
             break
