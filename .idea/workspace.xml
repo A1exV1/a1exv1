@@ -5,10 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="feea1526-0756-47e2-876e-a0259c55d7bc" name="Changes" comment="Update">
-      <change afterPath="$PROJECT_DIR$/The Caesar Cipher.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Number system calc.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Magic 8 ball.py" beforeDir="false" afterPath="$PROJECT_DIR$/Magic 8 ball.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Number guesser.py" beforeDir="false" afterPath="$PROJECT_DIR$/Number guesser.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Password generator.py" beforeDir="false" afterPath="$PROJECT_DIR$/Password generator.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/The Caesar Cipher.py" beforeDir="false" afterPath="$PROJECT_DIR$/The Caesar Cipher.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -138,6 +141,7 @@
       <workItem from="1702929289961" duration="4399000" />
       <workItem from="1702937444722" duration="9230000" />
       <workItem from="1702946713588" duration="1081000" />
+      <workItem from="1702977872010" duration="14906000" />
     </task>
     <task id="LOCAL-00002" summary="Update">
       <option name="closed" value="true" />
@@ -163,7 +167,15 @@
       <option name="project" value="LOCAL" />
       <updated>1702943460394</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Update">
+      <option name="closed" value="true" />
+      <created>1702978010769</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1702978010769</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -177,8 +189,9 @@
     <SUITE FILE_PATH="coverage/a1exv1$time.coverage" NAME="time Coverage Results" MODIFIED="1702741212684" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/a1exv1$Magic_8_ball.coverage" NAME="Magic 8 ball Coverage Results" MODIFIED="1702941091845" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/a1exv1$Password_generator.coverage" NAME="Password generator Coverage Results" MODIFIED="1702943428171" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/a1exv1$main.coverage" NAME="main Coverage Results" MODIFIED="1702921104311" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/a1exv1$main.coverage" NAME="main Coverage Results" MODIFIED="1702990829912" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/a1exv1$Anfisa.coverage" NAME="Anfisa Coverage Results" MODIFIED="1699518474817" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/a1exv1$Number_system_calc.coverage" NAME="Number system calc Coverage Results" MODIFIED="1702992345426" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/a1exv1$Distance.coverage" NAME="Distance Coverage Results" MODIFIED="1699628544652" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/a1exv1$Number_guesser.coverage" NAME="Number guesser Coverage Results" MODIFIED="1702941378883" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/a1exv1$The_Caesar_Cipher.coverage" NAME="The Caesar Cipher Coverage Results" MODIFIED="1702947249219" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />

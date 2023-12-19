@@ -26,7 +26,7 @@ def in_game(answers):
             continue
 
     rand = choice(answers)
-    print(f'Мой ответ: {rand}')
+    return rand
 
 
 def game_exit():
@@ -54,7 +54,8 @@ def start():
                'Перспективы не очень хорошие', 'Весьма сомнительно']
 
     while True:
-        in_game(answers)
+        rand = in_game(answers)
+        print(f'Мой ответ: {rand}')
 
         another_question = game_exit()
         if another_question == 'y':

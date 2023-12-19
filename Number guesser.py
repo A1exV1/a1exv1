@@ -37,6 +37,7 @@ def is_num_valid(num, nright):
 
 def in_game(nright, rand_numb):
     cnt = 0
+
     while True:
         print('Какое число я загадал?')
         num = input()
@@ -59,9 +60,9 @@ def in_game(nright, rand_numb):
             cnt += 1
             print('Ваше число больше загаданного, попробуйте еще разок')
         else:
-            print('Вы угадали, поздравляем!')
-            print(f'Количество попыток - {cnt}')
             break
+
+    return cnt
 
 
 def game_exit():
@@ -82,11 +83,11 @@ def start():
         print('До какого числа будем играть?')
 
         nright = right_number()
-
         rand_numb = rand_number(nright)
-        print(rand_numb)
 
-        in_game(nright, rand_numb)
+        cnt = in_game(nright, rand_numb)
+        print('Вы угадали, поздравляем!')
+        print(f'Количество попыток - {cnt}')
 
         another_game = game_exit()
         if another_game == 'y':

@@ -59,7 +59,7 @@ def generate_pwd(pwd_numb, pwd_len, chars):
         pwd = ''
         for p in range(pwd_len):
             pwd += choice(chars)
-        print(pwd)
+        return pwd
 
 
 def pwd_exit():
@@ -80,7 +80,8 @@ def start():
     while True:
         pwd_numb, pwd_len, chars = questions()
 
-        generate_pwd(pwd_numb, pwd_len, chars)
+        pwd = generate_pwd(pwd_numb, pwd_len, chars)
+        print(f'Ваш пароль: {pwd}')
 
         another_pwd = pwd_exit()
         if another_pwd == 'y':

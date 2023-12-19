@@ -80,7 +80,7 @@ def code(dest, step, words):
             else:
                 coded += i
 
-    print(coded)
+    return coded
 
 
 def cipher_exit():
@@ -101,7 +101,9 @@ def start():
     while True:
         dest, step, words = questions()
 
-        code(dest, step, words)
+        coded = code(dest, step, words)
+        print(f'''Послание:
+        {coded}''')
 
         another_cipher = cipher_exit()
         if another_cipher == 'y':
