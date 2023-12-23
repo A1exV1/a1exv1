@@ -150,7 +150,6 @@ def calc_to_10(from_sys, numb):
 
 
 def calc_to_r_from_10(numb):
-    leng = len(numb)
     numb_int = int(numb)
     out = ''
 
@@ -159,7 +158,6 @@ def calc_to_r_from_10(numb):
 
     if (numb_int // 100) != 0:
         point = (numb_int % 1000) // 100
-        print(point)
         if point == 9:
             out += 'CM'
         elif 5 <= point <= 8:
@@ -171,26 +169,14 @@ def calc_to_r_from_10(numb):
 
     if (numb_int // 10) != 0:
         point = (numb_int % 100) // 10
-        print(point)
         if point == 9:
             out += 'XC'
         elif 5 <= point <= 8:
             out += 'L' + ('X' * (point - 5))
         elif point == 4:
             out += 'XL'
-        elif 2 <= point <= 3:
+        elif 1 <= point <= 3:
             out += 'X' * point
-
-        if 19 <= (numb_int % 100) <= 10:
-            point = numb_int % 100
-            if point == 19:
-                out += 'XIX'
-            elif 15 <= point <= 18:
-                out += 'XV' + ('I' * (point - 5))
-            elif point == 14:
-                out += 'XIV'
-            elif 10 <= point <= 13:
-                out += 'X' * point
 
     point = numb_int % 10
     if point == 9:
@@ -236,6 +222,8 @@ def calc_from_r_to_10(numb):
         elif (cnt != 0) and (lst[p] > lst[p - 1]):
             out += (lst[p] - lst[p - 1])
         elif lst[p] == lst[p + 1]:
+            out += lst[p]
+        else:
             out += lst[p]
 
         cnt += 1
