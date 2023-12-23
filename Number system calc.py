@@ -221,8 +221,6 @@ def calc_from_r_to_10(numb):
             pass
         elif (cnt != 0) and (lst[p] > lst[p - 1]):
             out += (lst[p] - lst[p - 1])
-        elif lst[p] == lst[p + 1]:
-            out += lst[p]
         else:
             out += lst[p]
 
