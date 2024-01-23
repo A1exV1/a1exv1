@@ -4,7 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="feea1526-0756-47e2-876e-a0259c55d7bc" name="Changes" comment="Update" />
+    <list default="true" id="feea1526-0756-47e2-876e-a0259c55d7bc" name="Changes" comment="Update">
+      <change afterPath="$PROJECT_DIR$/.idea/other.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Number system calc.py" beforeDir="false" afterPath="$PROJECT_DIR$/Number system calc.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -39,6 +44,12 @@
       </UrlAndAccount>
     </option>
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/main.py" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 7
 }</component>
@@ -53,6 +64,7 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
     &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
@@ -63,6 +75,8 @@
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -142,6 +156,51 @@
       <workItem from="1703158289819" duration="69000" />
       <workItem from="1703341621520" duration="3044000" />
       <workItem from="1703358887298" duration="1870000" />
+      <workItem from="1703360779900" duration="157000" />
+      <workItem from="1703361218300" duration="479000" />
+      <workItem from="1703363115255" duration="1436000" />
+      <workItem from="1703414757029" duration="2526000" />
+      <workItem from="1703436285840" duration="600000" />
+      <workItem from="1703506045108" duration="1506000" />
+      <workItem from="1703514582833" duration="2783000" />
+      <workItem from="1703590545815" duration="11171000" />
+      <workItem from="1703672861720" duration="8218000" />
+      <workItem from="1703773363619" duration="3849000" />
+      <workItem from="1703789397074" duration="3520000" />
+      <workItem from="1703839081772" duration="6285000" />
+      <workItem from="1703854952706" duration="5614000" />
+      <workItem from="1703941880306" duration="20899000" />
+      <workItem from="1704229004937" duration="2456000" />
+      <workItem from="1704398728236" duration="196000" />
+      <workItem from="1704543596928" duration="4762000" />
+      <workItem from="1704641632623" duration="2201000" />
+      <workItem from="1704715319891" duration="3987000" />
+      <workItem from="1704733307940" duration="2315000" />
+      <workItem from="1704906833491" duration="1470000" />
+      <workItem from="1704994622700" duration="2961000" />
+      <workItem from="1705051422746" duration="7620000" />
+      <workItem from="1705068152557" duration="5872000" />
+      <workItem from="1705155571912" duration="4829000" />
+      <workItem from="1705231780464" duration="1832000" />
+      <workItem from="1705234609556" duration="12564000" />
+      <workItem from="1705310092531" duration="3648000" />
+      <workItem from="1705324361570" duration="7738000" />
+      <workItem from="1705405803534" duration="1003000" />
+      <workItem from="1705406818997" duration="1068000" />
+      <workItem from="1705420753963" duration="3678000" />
+      <workItem from="1705424666681" duration="1325000" />
+      <workItem from="1705575071086" duration="2305000" />
+      <workItem from="1705578714336" duration="4824000" />
+      <workItem from="1705593423312" duration="5354000" />
+      <workItem from="1705651885773" duration="3056000" />
+      <workItem from="1705677963809" duration="3279000" />
+      <workItem from="1705683319035" duration="56000" />
+      <workItem from="1705695219517" duration="1422000" />
+      <workItem from="1705751355209" duration="3662000" />
+      <workItem from="1705836236847" duration="2984000" />
+      <workItem from="1705862038820" duration="3581000" />
+      <workItem from="1705921378707" duration="11676000" />
+      <workItem from="1706016901734" duration="1920000" />
     </task>
     <task id="LOCAL-00002" summary="Update">
       <option name="closed" value="true" />
@@ -199,7 +258,15 @@
       <option name="project" value="LOCAL" />
       <updated>1703360750629</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Update">
+      <option name="closed" value="true" />
+      <created>1703360916843</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1703360916844</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -213,9 +280,9 @@
     <SUITE FILE_PATH="coverage/a1exv1$time.coverage" NAME="time Coverage Results" MODIFIED="1702741212684" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/a1exv1$Magic_8_ball.coverage" NAME="Magic 8 ball Coverage Results" MODIFIED="1702941091845" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/a1exv1$Password_generator.coverage" NAME="Password generator Coverage Results" MODIFIED="1702943428171" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/a1exv1$main.coverage" NAME="main Coverage Results" MODIFIED="1703359258521" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/a1exv1$main.coverage" NAME="main Coverage Results" MODIFIED="1706017151782" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/a1exv1$Anfisa.coverage" NAME="Anfisa Coverage Results" MODIFIED="1702998930100" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/a1exv1$Number_system_calc.coverage" NAME="Number system calc Coverage Results" MODIFIED="1703360518513" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/a1exv1$Number_system_calc.coverage" NAME="Number system calc Coverage Results" MODIFIED="1706018215265" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/a1exv1$Distance.coverage" NAME="Distance Coverage Results" MODIFIED="1702998912670" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/a1exv1$Number_guesser.coverage" NAME="Number guesser Coverage Results" MODIFIED="1703359341813" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/a1exv1$The_Caesar_Cipher.coverage" NAME="The Caesar Cipher Coverage Results" MODIFIED="1702947249219" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />

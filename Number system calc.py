@@ -20,12 +20,10 @@ def questions():
                 break
             else:
                 print('Прошу повторить ввод...')
-                continue
         elif from_sys == 'r':
             break
         else:
             print('Прошу повторить ввод...')
-            continue
 
     while True:
         print('''В какую систему необходимо перевести число?
@@ -38,19 +36,15 @@ def questions():
                 break
             elif to_sys == from_sys:
                 print('Переводить в ту же систему бессмысленно...')
-                continue
             else:
                 print('Прошу повторить ввод...')
-                continue
         elif to_sys == 'r':
             if to_sys != from_sys:
                 break
             else:
                 print('Переводить в ту же систему бессмысленно...')
-                continue
         else:
             print('Прошу повторить ввод...')
-            continue
 
     while True:
         print('Прошу ввести число для перевода:')
@@ -61,7 +55,6 @@ def questions():
                 break
             else:
                 print('Только римские цифры...')
-                continue
         elif numb.isalpha():
             if from_sys == 'r':
                 leng = len(numb)
@@ -76,29 +69,17 @@ def questions():
                     break
                 else:
                     print('Только римские цифры...')
-                    continue
             else:
                 print('Только арабские цифры...')
-                continue
         elif numb.isalnum() and from_sys == 16:
-            leng = len(numb)
-            cnt = 0
-            for i in numb:
-                if i.isdigit():
-                    cnt += 1
-                elif i in let_16:
-                    cnt += 1
-                else:
-                    pass
+            cnt = [1 for i in numb if i.isdigit() or i in let_16]
 
-            if cnt == leng:
+            if sum(cnt) == len(numb):
                 break
             else:
                 print('Только буквы от A до F...')
-                continue
         else:
             print('Прошу повторить ввод...')
-            continue
 
     return from_sys, to_sys, numb
 
@@ -192,25 +173,15 @@ def calc_to_r_from_10(numb):
 
 
 def calc_from_r_to_10(numb):
-    lst = []
-    cnt = 0
-    out = 0
+    lst, cnt, out = [], 0, 0
 
-    for i in numb:
-        if i == 'i':
-            lst.append(1)
-        elif i == 'v':
-            lst.append(5)
-        elif i == 'x':
-            lst.append(10)
-        elif i == 'l':
-            lst.append(50)
-        elif i == 'c':
-            lst.append(100)
-        elif i == 'd':
-            lst.append(500)
-        else:
-            lst.append(1000)
+    [lst.append(1) for i in numb if i == 'i']
+    [lst.append(5) for i in numb if i == 'v']
+    [lst.append(10) for i in numb if i == 'x']
+    [lst.append(50) for i in numb if i == 'l']
+    [lst.append(100) for i in numb if i == 'c']
+    [lst.append(500) for i in numb if i == 'd']
+    [lst.append(1000) for i in numb if i == 'm']
 
     for p in range(len(lst)):
         if (cnt == (len(lst) - 1)) and (lst[p] <= lst[p - 1]):
@@ -257,7 +228,6 @@ def numb_exit():
         another_numb = input().lower()
         if another_numb != 'y' and another_numb != 'n':
             print('Такого ответа я не знаю...')
-            continue
         else:
             break
     return another_numb
@@ -268,14 +238,11 @@ def start():
 
     while True:
         from_sys, to_sys, numb = questions()
-
-        out = calc(from_sys, to_sys, numb)
-        print(out)
+        print(calc(from_sys, to_sys, numb))
 
         another_numb = numb_exit()
-        if another_numb == 'y':
-            continue
-        else:
+        if another_numb != 'y':
+            print('До свидания!')
             break
 
 
