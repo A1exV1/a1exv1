@@ -48,7 +48,7 @@ class NumberCalc:
 
 
 class Program:
-    _from_sys = ''
+    _from_sys = None
 
     def __call__(self):
         print('Приветствую! Это калькулятор систем счисления.')
@@ -76,11 +76,11 @@ class Program:
             - Шестнадцатеричная (16)
             - Римская (R)
             Напишите только число или R:''')
-            sys = input().upper()
+            from_sys = input().upper()
 
-            if (sys.isdigit() and sys in ['2', '8', '10', '16']) or sys == 'R':
-                Program._from_sys = sys
-                return sys
+            if from_sys == 'R' or (from_sys.isdigit() and from_sys in ['2', '8', '10', '16']):
+                Program._from_sys = from_sys
+                return from_sys
             print('Неверный ввод...')
 
     @staticmethod
@@ -88,28 +88,29 @@ class Program:
         while True:
             print('''В какую систему необходимо перевести число?
             Напишите только число 2/8/10/16 или R:''')
-            sys = input().upper()
+            to_sys = input().upper()
 
-            if sys != Program._from_sys and ((sys.isdigit() and sys in ['2', '8', '10', '16']) or sys == 'R'):
-                return sys
+            if to_sys != Program._from_sys and ((to_sys.isdigit() and to_sys in ['2', '8', '10', '16'])
+                                                or to_sys == 'R'):
+                return to_sys
             print('Неверный ввод...')
 
     @staticmethod
     def numb():
         while True:
             print('Прошу ввести число для перевода:')
-            n = input().upper()
+            numb = input().upper()
 
-            if Program._from_sys == 'R' and all(i in 'IVXLCDM' for i in n):
-                return n
-            elif Program._from_sys == '2' and all(i in '01' for i in n):
-                return n
-            elif Program._from_sys == '8' and all(i in '01234567' for i in n):
-                return n
-            elif Program._from_sys == '10' and all(i.isdigit() for i in n):
-                return n
-            elif Program._from_sys == '16' and all(i in '0123456789ABCDEF' for i in n):
-                return n
+            if Program._from_sys == 'R' and all(i in 'IVXLCDM' for i in numb):
+                return numb
+            elif Program._from_sys == '2' and all(i in '01' for i in numb):
+                return numb
+            elif Program._from_sys == '8' and all(i in '01234567' for i in numb):
+                return numb
+            elif Program._from_sys == '10' and all(i.isdigit() for i in numb):
+                return numb
+            elif Program._from_sys == '16' and all(i in '0123456789ABCDEF' for i in numb):
+                return numb
             print('Неверный ввод...')
 
     @staticmethod
