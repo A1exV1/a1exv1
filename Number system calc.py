@@ -1,249 +1,126 @@
-def questions():
-    systems = [2, 8, 10, 16]
-    let_16 = 'abcdef'
-    rome = 'ivxlcdm'
+class NumberCalc:
+    def __call__(self, from_sys, to_sys, numb):
+        if from_sys in ['2', '8', '16']:
+            numb = NumberCalc.to_int(int(from_sys), numb)
+        elif from_sys == 'R':
+            numb = NumberCalc.roman_to_int(numb)
 
-    while True:
-        print('''Из какой системы необходимо перевести число?
-        Я умею переводить числа из следующих систем:
-        - Десятеричная (10)
-        - Двоичная (2)
-        - Восьмеричная (8)
-        - Шестнадцатеричная (16)
-        - Римская (R)
-        Напиши только число или R:''')
-        from_sys = input().lower()
+        if to_sys == 'R':
+            return NumberCalc.int_to_roman(int(numb))
+        elif to_sys in ['2', '8', '16']:
+            return NumberCalc.from_int(int(to_sys), int(numb))
+        return numb
 
-        if from_sys.isdigit():
-            from_sys = int(from_sys)
-            if from_sys in systems:
-                break
-            else:
-                print('Прошу повторить ввод...')
-        elif from_sys == 'r':
-            break
-        else:
-            print('Прошу повторить ввод...')
+    @staticmethod
+    def from_int(to_sys, numb):
+        if to_sys == 8:
+            return str(oct(numb))[2:]
+        elif to_sys == 16:
+            return str(hex(numb))[2:].upper()
+        return str(bin(numb))[2:]
 
-    while True:
-        print('''В какую систему необходимо перевести число?
-        Напиши только число 2/8/10/16 или R:''')
-        to_sys = input().lower()
+    @staticmethod
+    def to_int(from_sys, numb):
+        return int(numb, base=from_sys)
 
-        if to_sys.isdigit():
-            to_sys = int(to_sys)
-            if to_sys in systems and to_sys != from_sys:
-                break
-            elif to_sys == from_sys:
-                print('Переводить в ту же систему бессмысленно...')
-            else:
-                print('Прошу повторить ввод...')
-        elif to_sys == 'r':
-            if to_sys != from_sys:
-                break
-            else:
-                print('Переводить в ту же систему бессмысленно...')
-        else:
-            print('Прошу повторить ввод...')
+    @staticmethod
+    def int_to_roman(numb):
+        dct, out = {1: 'I', 4: 'IV', 5: 'V', 9: 'IX', 10: 'X', 40: 'XL', 50: 'L', 90: 'XC', 100: 'C', 400: 'CD',
+                    500: 'D', 900: 'CM', 1000: 'M'}, ''
 
-    while True:
-        print('Прошу ввести число для перевода:')
-        numb = input().lower()
-
-        if numb.isdigit():
-            if from_sys != 'r':
-                break
-            else:
-                print('Только римские цифры...')
-        elif numb.isalpha():
-            if from_sys == 'r':
-                leng = len(numb)
-                cnt = 0
-                for i in numb:
-                    if i in rome:
-                        cnt += 1
-                    else:
-                        pass
-
-                if cnt == leng:
-                    break
-                else:
-                    print('Только римские цифры...')
-            else:
-                print('Только арабские цифры...')
-        elif numb.isalnum() and from_sys == 16:
-            cnt = [1 for i in numb if i.isdigit() or i in let_16]
-
-            if sum(cnt) == len(numb):
-                break
-            else:
-                print('Только буквы от A до F...')
-        else:
-            print('Прошу повторить ввод...')
-
-    return from_sys, to_sys, numb
-
-
-def calc_from_10(to_sys, numb):
-    numb = int(numb)
-
-    if to_sys == 2:
-        out = str(bin(numb))
-        return out[2:]
-    elif to_sys == 8:
-        out = str(oct(numb))
-        return out[2:]
-    else:
-        out = str(hex(numb))
-        return out[2:].upper()
-
-
-def calc_to_10(from_sys, numb):
-    cnt = 0
-    out = 0
-    bmun = numb[::-1]
-
-    if from_sys == 2 or from_sys == 8:
-        for i in bmun:
-            out += int(i) * (from_sys ** cnt)
-            cnt += 1
+        for n in (1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1):
+            while n <= numb:
+                out += dct[n]
+                numb -= n
         return out
-    else:
-        for i in bmun:
-            if i.isdigit():
-                out += int(i) * (from_sys ** cnt)
-                cnt += 1
+
+    @staticmethod
+    def roman_to_int(numb):
+        dct, out = {'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, 'M': 1000}, 0
+
+        for i in range(len(numb) - 1, -1, -1):
+            num = dct[numb[i]]
+            if 3 * num < out:
+                out -= num
             else:
-                if i == 'a':
-                    out += 10 * (from_sys ** cnt)
-                elif i == 'b':
-                    out += 11 * (from_sys ** cnt)
-                elif i == 'c':
-                    out += 12 * (from_sys ** cnt)
-                elif i == 'd':
-                    out += 13 * (from_sys ** cnt)
-                elif i == 'e':
-                    out += 14 * (from_sys ** cnt)
-                else:
-                    out += 15 * (from_sys ** cnt)
-                cnt += 1
+                out += num
         return out
 
 
-def calc_to_r_from_10(numb):
-    numb_int = int(numb)
-    out = ''
+class Program:
+    _from_sys = ''
 
-    if (numb_int // 1000) != 0:
-        out += 'M' * int(numb_int / 1000)
+    def __call__(self):
+        print('Приветствую! Это калькулятор систем счисления.')
 
-    if (numb_int // 100) != 0:
-        point = (numb_int % 1000) // 100
-        if point == 9:
-            out += 'CM'
-        elif 5 <= point <= 8:
-            out += 'D' + ('C' * (point - 5))
-        elif point == 4:
-            out += 'CD'
-        else:
-            out += 'C' * point
+        while True:
+            from_sys = Program.from_sys()
+            to_sys = Program.to_sys()
+            numb = Program.numb()
 
-    if (numb_int // 10) != 0:
-        point = (numb_int % 100) // 10
-        if point == 9:
-            out += 'XC'
-        elif 5 <= point <= 8:
-            out += 'L' + ('X' * (point - 5))
-        elif point == 4:
-            out += 'XL'
-        elif 1 <= point <= 3:
-            out += 'X' * point
+            calc = NumberCalc()
+            print(calc(from_sys, to_sys, numb))
 
-    point = numb_int % 10
-    if point == 9:
-        out += 'IX'
-    elif 5 <= point <= 8:
-        out += 'V' + ('I' * (point - 5))
-    elif point == 4:
-        out += 'IV'
-    elif 1 <= point <= 3:
-        out += 'I' * point
+            if Program.exit() == 'N':
+                print('До свидания!')
+                break
 
-    return out
+    @staticmethod
+    def from_sys():
+        while True:
+            print('''Из какой системы необходимо перевести число?
+            Я умею переводить числа из следующих систем:
+            - Десятеричная (10)
+            - Двоичная (2)
+            - Восьмеричная (8)
+            - Шестнадцатеричная (16)
+            - Римская (R)
+            Напишите только число или R:''')
+            sys = input().upper()
 
+            if (sys.isdigit() and sys in ['2', '8', '10', '16']) or sys == 'R':
+                Program._from_sys = sys
+                return sys
+            print('Неверный ввод...')
 
-def calc_from_r_to_10(numb):
-    lst, cnt, out = [], 0, 0
+    @staticmethod
+    def to_sys():
+        while True:
+            print('''В какую систему необходимо перевести число?
+            Напишите только число 2/8/10/16 или R:''')
+            sys = input().upper()
 
-    [lst.append(1) for i in numb if i == 'i']
-    [lst.append(5) for i in numb if i == 'v']
-    [lst.append(10) for i in numb if i == 'x']
-    [lst.append(50) for i in numb if i == 'l']
-    [lst.append(100) for i in numb if i == 'c']
-    [lst.append(500) for i in numb if i == 'd']
-    [lst.append(1000) for i in numb if i == 'm']
+            if sys != Program._from_sys and ((sys.isdigit() and sys in ['2', '8', '10', '16']) or sys == 'R'):
+                return sys
+            print('Неверный ввод...')
 
-    for p in range(len(lst)):
-        if (cnt == (len(lst) - 1)) and (lst[p] <= lst[p - 1]):
-            out += lst[p]
-        elif (cnt == (len(lst) - 1)) and (lst[p] > lst[p - 1]):
-            out += (lst[p] - lst[p - 1])
-        elif lst[p] < lst[p + 1]:
-            pass
-        elif (cnt != 0) and (lst[p] > lst[p - 1]):
-            out += (lst[p] - lst[p - 1])
-        else:
-            out += lst[p]
+    @staticmethod
+    def numb():
+        while True:
+            print('Прошу ввести число для перевода:')
+            n = input().upper()
 
-        cnt += 1
+            if Program._from_sys == 'R' and all(i in 'IVXLCDM' for i in n):
+                return n
+            elif Program._from_sys == '2' and all(i in '01' for i in n):
+                return n
+            elif Program._from_sys == '8' and all(i in '01234567' for i in n):
+                return n
+            elif Program._from_sys == '10' and all(i.isdigit() for i in n):
+                return n
+            elif Program._from_sys == '16' and all(i in '0123456789ABCDEF' for i in n):
+                return n
+            print('Неверный ввод...')
 
-    return out
-
-
-def calc(from_sys, to_sys, numb):
-    if from_sys == 10 and to_sys != 'r':
-        out = calc_from_10(to_sys, numb)
-    elif to_sys == 10 and from_sys != 'r':
-        out = calc_to_10(from_sys, numb)
-    elif (from_sys == 2 or from_sys == 8 or from_sys == 16) and (to_sys == 2 or to_sys == 8 or to_sys == 16):
-        first = calc_to_10(from_sys, numb)
-        out = calc_from_10(to_sys, str(first))
-    elif from_sys == 'r' and to_sys == 10:
-        out = calc_from_r_to_10(numb)
-    elif to_sys == 'r' and from_sys == 10:
-        out = calc_to_r_from_10(numb)
-    elif from_sys == 'r':
-        first = calc_from_r_to_10(numb)
-        out = calc_from_10(to_sys, str(first))
-    else:
-        first = calc_to_10(from_sys, numb)
-        out = calc_to_r_from_10(str(first))
-
-    return out
-
-
-def numb_exit():
-    while True:
-        print('Переведем другое число? Y/N')
-        another_numb = input().lower()
-        if another_numb != 'y' and another_numb != 'n':
+    @staticmethod
+    def exit():
+        while True:
+            print('Переведем другое число? Y/N')
+            another_numb = input().upper()
+            if another_numb == 'Y' or another_numb == 'N':
+                return another_numb
             print('Такого ответа я не знаю...')
-        else:
-            break
-    return another_numb
 
 
-def start():
-    print('Приветствую! Это калькулятор систем счисления.')
-
-    while True:
-        from_sys, to_sys, numb = questions()
-        print(calc(from_sys, to_sys, numb))
-
-        another_numb = numb_exit()
-        if another_numb != 'y':
-            print('До свидания!')
-            break
-
-
+start = Program()
 start()
