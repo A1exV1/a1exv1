@@ -11,31 +11,31 @@ class NumberCalc:
             return NumberCalc.from_int(int(to_sys), int(numb))
         return numb
 
-    @staticmethod
-    def from_int(to_sys, numb):
+    @classmethod
+    def from_int(cls, to_sys, numb):
         if to_sys == 8:
             return str(oct(numb))[2:]
         elif to_sys == 16:
             return str(hex(numb))[2:].upper()
         return str(bin(numb))[2:]
 
-    @staticmethod
-    def to_int(from_sys, numb):
+    @classmethod
+    def to_int(cls, from_sys, numb):
         return int(numb, base=from_sys)
 
-    @staticmethod
-    def int_to_roman(numb):
+    @classmethod
+    def int_to_roman(cls, numb):
         dct, out = {1: 'I', 4: 'IV', 5: 'V', 9: 'IX', 10: 'X', 40: 'XL', 50: 'L', 90: 'XC', 100: 'C', 400: 'CD',
                     500: 'D', 900: 'CM', 1000: 'M'}, ''
 
-        for n in (1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1):
+        for n in reversed(dct.keys()):
             while n <= numb:
                 out += dct[n]
                 numb -= n
         return out
 
-    @staticmethod
-    def roman_to_int(numb):
+    @classmethod
+    def roman_to_int(cls, numb):
         dct, out = {'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, 'M': 1000}, 0
 
         for i in range(len(numb) - 1, -1, -1):
@@ -54,9 +54,9 @@ class Program:
         print('Приветствую! Это калькулятор систем счисления.')
 
         while True:
-            from_sys = Program.from_sys()
-            to_sys = Program.to_sys()
-            numb = Program.numb()
+            from_sys = Program.get_from_sys()
+            to_sys = Program.get_to_sys()
+            numb = Program.get_numb()
 
             calc = NumberCalc()
             print(calc(from_sys, to_sys, numb))
@@ -65,8 +65,8 @@ class Program:
                 print('До свидания!')
                 break
 
-    @staticmethod
-    def from_sys():
+    @classmethod
+    def get_from_sys(cls):
         while True:
             print('''Из какой системы необходимо перевести число?
             Я умею переводить числа из следующих систем:
@@ -83,8 +83,8 @@ class Program:
                 return from_sys
             print('Неверный ввод...')
 
-    @staticmethod
-    def to_sys():
+    @classmethod
+    def get_to_sys(cls):
         while True:
             print('''В какую систему необходимо перевести число?
             Напишите только число 2/8/10/16 или R:''')
@@ -95,8 +95,8 @@ class Program:
                 return to_sys
             print('Неверный ввод...')
 
-    @staticmethod
-    def numb():
+    @classmethod
+    def get_numb(cls):
         while True:
             print('Прошу ввести число для перевода:')
             numb = input().upper()
@@ -113,8 +113,8 @@ class Program:
                 return numb
             print('Неверный ввод...')
 
-    @staticmethod
-    def exit():
+    @classmethod
+    def exit(cls):
         while True:
             print('Переведем другое число? Y/N')
             another_numb = input().upper()
