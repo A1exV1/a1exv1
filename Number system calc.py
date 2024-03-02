@@ -1,23 +1,14 @@
 class NumberCalc:
     def __call__(self, from_sys, to_sys, numb):
-        if from_sys in ['2', '8', '16']:
-            numb = NumberCalc.to_int(int(from_sys), numb)
-        elif from_sys == 'R':
-            numb = NumberCalc.roman_to_int(numb)
+        numb = NumberCalc.to_int(int(from_sys), numb) if from_sys in ['2', '8', '16'] else \
+            NumberCalc.roman_to_int(numb) if from_sys == 'R' else numb
 
-        if to_sys == 'R':
-            return NumberCalc.int_to_roman(int(numb))
-        elif to_sys in ['2', '8', '16']:
-            return NumberCalc.from_int(int(to_sys), int(numb))
-        return numb
+        return NumberCalc.int_to_roman(int(numb)) if to_sys == 'R' \
+            else NumberCalc.from_int(int(to_sys), int(numb)) if to_sys in ['2', '8', '16'] else numb
 
     @classmethod
     def from_int(cls, to_sys, numb):
-        if to_sys == 8:
-            return str(oct(numb))[2:]
-        elif to_sys == 16:
-            return str(hex(numb))[2:].upper()
-        return str(bin(numb))[2:]
+        return [f'{numb:b}', f'{numb:o}', f'{numb:X}'][[2, 8, 16].index(to_sys)]
 
     @classmethod
     def to_int(cls, from_sys, numb):
@@ -40,10 +31,7 @@ class NumberCalc:
 
         for i in range(len(numb) - 1, -1, -1):
             num = dct[numb[i]]
-            if 3 * num < out:
-                out -= num
-            else:
-                out += num
+            out = out - num if 3 * num < out else out + num
         return out
 
 
@@ -90,8 +78,8 @@ class Program:
             Напишите только число 2/8/10/16 или R:''')
             to_sys = input().upper()
 
-            if to_sys != Program._from_sys and ((to_sys.isdigit() and to_sys in ['2', '8', '10', '16'])
-                                                or to_sys == 'R'):
+            if to_sys != Program._from_sys and ((to_sys.isdigit() and to_sys in ['2', '8', '10', '16']) or
+                                                to_sys == 'R'):
                 return to_sys
             print('Неверный ввод...')
 
@@ -101,15 +89,11 @@ class Program:
             print('Прошу ввести число для перевода:')
             numb = input().upper()
 
-            if Program._from_sys == 'R' and all(i in 'IVXLCDM' for i in numb):
-                return numb
-            elif Program._from_sys == '2' and all(i in '01' for i in numb):
-                return numb
-            elif Program._from_sys == '8' and all(i in '01234567' for i in numb):
-                return numb
-            elif Program._from_sys == '10' and all(i.isdigit() for i in numb):
-                return numb
-            elif Program._from_sys == '16' and all(i in '0123456789ABCDEF' for i in numb):
+            if (Program._from_sys == 'R' and all(i in 'IVXLCDM' for i in numb)) or \
+                    (Program._from_sys == '2' and all(i in '01' for i in numb)) or \
+                    (Program._from_sys == '8' and all(i in '01234567' for i in numb)) or \
+                    (Program._from_sys == '10' and all(i.isdigit() for i in numb)) or \
+                    (Program._from_sys == '16' and all(i in '0123456789ABCDEF' for i in numb)):
                 return numb
             print('Неверный ввод...')
 
