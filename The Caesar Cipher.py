@@ -1,115 +1,56 @@
-def questions():
-    while True:
-        print(f'Зашифровать или дешифровать? E/D')
-        dest = input().lower()
-        if dest != 'e' and dest != 'd':
-            print('Такого ответа я не знаю...')
-            continue
-        else:
-            break
+class Caesar:
+    @staticmethod
+    def cipher(dest, lang, step, words):
+        coded, lang = '', ['абвгдеёжзийклмнопрстуфхцчшщъыьэюя', 'abcdefghijklmnopqrstuvwxyz'][['RU', 'EN'].index(lang)]
+        for letter in words:
+            upper, letter = letter.isupper(), letter.lower()
+            letter = lang[(lang.index(letter) + step) % len(lang)] if letter in lang and dest == 'E'\
+                else lang[(lang.index(letter) - step) % len(lang)] if letter in lang and dest == 'D'\
+                else letter
+            coded += [letter, letter.upper()][upper]
+        return coded
 
-    while True:
-        print(f'На каком языке? Ru/En')
-        lang = input().lower()
-        if lang != 'ru' and lang != 'en':
-            print('Такого ответа я не знаю...')
-            continue
-        else:
-            break
 
-    while True:
-        print('Какой шаг сдвига? Ru до 31/En до 25')
-        step = input()
+class Program:
+    def __call__(self, *args, **kwargs):
+        print('Приветствую! Сейчас мы будем работать с Шифром Цезаря.')
 
-        if step.isdigit():
-            step = int(step)
-            if lang == 'ru' and 0 < step < 32:
+        while True:
+            dest = Program.get('Зашифровать или дешифровать? E/D', ['E', 'D'])
+            lang = Program.get('На каком языке? RU/EN', ['RU', 'EN'])
+            choice = {'RU': 32, 'EN': 25}
+            step = Program.get(f'Какой шаг сдвига? 1-{choice[lang]}', choice[lang])
+
+            print('Какую фразу необходимо обработать?')
+            words = input()
+
+            print(f'''Послание:
+{Caesar.cipher(dest, lang, step, words)} (ROT{step})''')
+
+            if Program.exit() == 'N':
+                print('До свидания!')
                 break
-            elif lang == 'en' and 0 < step < 26:
-                break
-            else:
-                print('Должен быть больше 0...')
-                continue
-        else:
-            print('Нам нужно именно число...')
-            continue
 
-    print('Какую фразу необходимо обработать?')
-    words = input()
-
-    return dest, step, words
-
-
-def code(dest, step, words):
-    en_lower = 'abcdefghijklmnopqrstuvwxyz'
-    en_upper = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
-    ru_lower = 'абвгдежзийклмнопрстуфхцчшщъыьэюя'
-    ru_upper = 'АБВГДЕЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ'
-    coded = ''
-
-    if dest == 'e':
-        for i in words:
-            if i in en_lower:
-                char = en_lower[(en_lower.index(i) + step) % len(en_lower)]
-                coded += char
-            elif i in en_upper:
-                char = en_upper[(en_upper.index(i) + step) % len(en_upper)]
-                coded += char
-            elif i in ru_lower:
-                char = ru_lower[(ru_lower.index(i) + step) % len(ru_lower)]
-                coded += char
-            elif i in ru_upper:
-                char = ru_upper[(ru_upper.index(i) + step) % len(ru_upper)]
-                coded += char
-            else:
-                coded += i
-    else:
-        for i in words:
-            if i in en_lower:
-                char = en_lower[(en_lower.index(i) - step) % len(en_lower)]
-                coded += char
-            elif i in en_upper:
-                char = en_upper[(en_upper.index(i) - step) % len(en_upper)]
-                coded += char
-            elif i in ru_lower:
-                char = ru_lower[(ru_lower.index(i) - step) % len(ru_lower)]
-                coded += char
-            elif i in ru_upper:
-                char = ru_upper[(ru_upper.index(i) - step) % len(ru_upper)]
-                coded += char
-            else:
-                coded += i
-
-    return coded
-
-
-def cipher_exit():
-    while True:
-        print('Будут еще шифры? Y/N')
-        another_cipher = input().lower()
-        if another_cipher != 'y' and another_cipher != 'n':
+    @classmethod
+    def get(cls, phrase:str, choice:[list,int]):
+        while True:
+            print(phrase)
+            out = input().upper()
+            if isinstance(choice, list) and out in choice:
+                return out
+            elif isinstance(choice, int) and out.isdigit() and 1 <= int(out) <= choice:
+                return int(out)
             print('Такого ответа я не знаю...')
-            continue
-        else:
-            break
-    return another_cipher
+
+    @classmethod
+    def exit(cls):
+        while True:
+            print('Будут ещё шифры? Y/N')
+            another = input().upper()
+            if another in ['Y', 'N']:
+                return another
+            print('Такого ответа я не знаю...')
 
 
-def start():
-    print('Приветствую! Сейчас мы будем работать с Шифром Цезаря.')
-
-    while True:
-        dest, step, words = questions()
-
-        coded = code(dest, step, words)
-        print(f'''Послание:
-        {coded}''')
-
-        another_cipher = cipher_exit()
-        if another_cipher == 'y':
-            continue
-        else:
-            break
-
-
+start = Program()
 start()

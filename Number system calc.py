@@ -1,5 +1,5 @@
 class NumberCalc:
-    def __call__(self, from_sys, to_sys, numb):
+    def __call__(self, from_sys, to_sys, numb, *args, **kwargs):
         numb = NumberCalc.to_int(int(from_sys), numb) if from_sys in ['2', '8', '16'] else \
             NumberCalc.roman_to_int(numb) if from_sys == 'R' else numb
 
@@ -38,7 +38,7 @@ class NumberCalc:
 class Program:
     _from_sys = None
 
-    def __call__(self):
+    def __call__(self, *args, **kwargs):
         print('Приветствую! Это калькулятор систем счисления.')
 
         while True:
@@ -101,9 +101,9 @@ class Program:
     def exit(cls):
         while True:
             print('Переведем другое число? Y/N')
-            another_numb = input().upper()
-            if another_numb == 'Y' or another_numb == 'N':
-                return another_numb
+            another = input().upper()
+            if another in ['Y', 'N']:
+                return another
             print('Такого ответа я не знаю...')
 
 
