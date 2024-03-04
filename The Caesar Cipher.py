@@ -1,11 +1,12 @@
 class Caesar:
+    _ru, _en = 'абвгдеёжзийклмнопрстуфхцчшщъыьэюя', 'abcdefghijklmnopqrstuvwxyz'
+
     @staticmethod
     def cipher(dest, lang, step, words):
-        coded, lang = '', ['абвгдеёжзийклмнопрстуфхцчшщъыьэюя', 'abcdefghijklmnopqrstuvwxyz'][['RU', 'EN'].index(lang)]
+        coded, lang = '', [Caesar._ru, Caesar._en][['RU', 'EN'].index(lang)]
         for letter in words:
             upper, letter = letter.isupper(), letter.lower()
-            letter = lang[(lang.index(letter) + step) % len(lang)] if letter in lang and dest == 'E'\
-                else lang[(lang.index(letter) - step) % len(lang)] if letter in lang and dest == 'D'\
+            letter = lang[(lang.index(letter) + [step, -step][['E', 'D'].index(dest)]) % len(lang)] if letter in lang\
                 else letter
             coded += [letter, letter.upper()][upper]
         return coded

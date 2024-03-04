@@ -1,9 +1,9 @@
 class NumberCalc:
     def __call__(self, from_sys, to_sys, numb, *args, **kwargs):
-        numb = NumberCalc.to_int(int(from_sys), numb) if from_sys in ['2', '8', '16'] else \
-            NumberCalc.roman_to_int(numb) if from_sys == 'R' else numb
+        numb = NumberCalc.to_int(int(from_sys), numb) if from_sys in ['2', '8', '16']\
+            else NumberCalc.roman_to_int(numb) if from_sys == 'R' else numb
 
-        return NumberCalc.int_to_roman(int(numb)) if to_sys == 'R' \
+        return NumberCalc.int_to_roman(int(numb)) if to_sys == 'R'\
             else NumberCalc.from_int(int(to_sys), int(numb)) if to_sys in ['2', '8', '16'] else numb
 
     @classmethod
