@@ -1,2 +1,18 @@
-x = [1, 2, 3]
-print(str(x))
+class Cat:
+    def meow(self):
+        return 'мяу'
+
+
+class Dog:
+    def meow(self):
+        return 'гав'
+
+
+class CatDog(Dog, Cat):
+    pass
+
+
+catdog = CatDog()
+
+print(CatDog.mro())
+print(catdog.meow())

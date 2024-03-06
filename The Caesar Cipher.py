@@ -53,5 +53,6 @@ class Program:
             print('Такого ответа я не знаю...')
 
 
-start = Program()
-start()
+if __name__ == '__main__':
+    start = Program()
+    start()
