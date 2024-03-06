@@ -42,10 +42,10 @@ class Run:
 
         while True:
             self.from_sys = self.get_from_sys()
-            self.to_sys = self.get_to_sys()
-            self.numb = self.get_numb()
+            to_sys = self.get_to_sys()
+            numb = self.get_numb()
 
-            calc = NumberCalc(self.from_sys, self.to_sys, self.numb)
+            calc = NumberCalc(self.from_sys, to_sys, numb)
             print(calc.run())
 
             if self.exit() == 'N':
@@ -72,24 +72,24 @@ class Run:
         while True:
             print('''В какую систему необходимо перевести число?
             Напишите только число 2/8/10/16 или R:''')
-            self.to_sys = input().upper()
+            to_sys = input().upper()
 
-            if self.to_sys != self.from_sys and ((self.to_sys.isdigit() and self.to_sys in ['2', '8', '10', '16'])
-                                                 or self.to_sys == 'R'):
-                return self.to_sys
+            if to_sys != self.from_sys and ((to_sys.isdigit() and to_sys in ['2', '8', '10', '16'])
+                                            or to_sys == 'R'):
+                return to_sys
             print('Неверный ввод...')
 
     def get_numb(self):
         while True:
             print('Прошу ввести число для перевода:')
-            self.numb = input().upper()
+            numb = input().upper()
 
-            if (self.from_sys == 'R' and all(i in 'IVXLCDM' for i in self.numb)) or \
-                    (self.from_sys == '2' and all(i in '01' for i in self.numb)) or \
-                    (self.from_sys == '8' and all(i in '01234567' for i in self.numb)) or \
-                    (self.from_sys == '10' and all(i.isdigit() for i in self.numb)) or \
-                    (self.from_sys == '16' and all(i in '0123456789ABCDEF' for i in self.numb)):
-                return self.numb
+            if (self.from_sys == 'R' and all(i in 'IVXLCDM' for i in numb)) or \
+                    (self.from_sys == '2' and all(i in '01' for i in numb)) or \
+                    (self.from_sys == '8' and all(i in '01234567' for i in numb)) or \
+                    (self.from_sys == '10' and all(i.isdigit() for i in numb)) or \
+                    (self.from_sys == '16' and all(i in '0123456789ABCDEF' for i in numb)):
+                return numb
             print('Неверный ввод...')
 
     @staticmethod

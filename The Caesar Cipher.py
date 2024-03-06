@@ -1,9 +1,8 @@
 class Caesar:
-    _ru, _en = 'абвгдеёжзийклмнопрстуфхцчшщъыьэюя', 'abcdefghijklmnopqrstuvwxyz'
-
     @staticmethod
     def cipher(dest, lang, step, words):
-        coded, lang = '', [Caesar._ru, Caesar._en][['RU', 'EN'].index(lang)]
+        ru, en = 'абвгдеёжзийклмнопрстуфхцчшщъыьэюя', 'abcdefghijklmnopqrstuvwxyz'
+        coded, lang = '', [ru, en][['RU', 'EN'].index(lang)]
         for letter in words:
             upper, letter = letter.isupper(), letter.lower()
             letter = lang[(lang.index(letter) + [step, -step][['E', 'D'].index(dest)]) % len(lang)] if letter in lang\
@@ -12,15 +11,15 @@ class Caesar:
         return coded
 
 
-class Program:
-    def __call__(self, *args, **kwargs):
+class Run:
+    def __init__(self):
         print('Приветствую! Сейчас мы будем работать с Шифром Цезаря.')
 
         while True:
-            dest = Program.get('Зашифровать или дешифровать? E/D', ['E', 'D'])
-            lang = Program.get('На каком языке? RU/EN', ['RU', 'EN'])
+            dest = self.get('Зашифровать или дешифровать? E/D', ['E', 'D'])
+            lang = self.get('На каком языке? RU/EN', ['RU', 'EN'])
             choice = {'RU': 32, 'EN': 25}
-            step = Program.get(f'Какой шаг сдвига? 1-{choice[lang]}', choice[lang])
+            step = self.get(f'Какой шаг сдвига? 1-{choice[lang]}', choice[lang])
 
             print('Какую фразу необходимо обработать?')
             words = input()
@@ -28,12 +27,12 @@ class Program:
             print(f'''Послание:
 {Caesar.cipher(dest, lang, step, words)} (ROT{step})''')
 
-            if Program.exit() == 'N':
+            if self.exit() == 'N':
                 print('До свидания!')
                 break
 
-    @classmethod
-    def get(cls, phrase:str, choice:[list,int]):
+    @staticmethod
+    def get(phrase:str, choice:[list, int]):
         while True:
             print(phrase)
             out = input().upper()
@@ -43,16 +42,16 @@ class Program:
                 return int(out)
             print('Такого ответа я не знаю...')
 
-    @classmethod
-    def exit(cls):
+    @staticmethod
+    def exit():
         while True:
             print('Будут ещё шифры? Y/N')
             another = input().upper()
+
             if another in ['Y', 'N']:
                 return another
             print('Такого ответа я не знаю...')
 
 
 if __name__ == '__main__':
-    start = Program()
-    start()
+    Run()
