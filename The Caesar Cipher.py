@@ -1,20 +1,18 @@
 class Caesar:
-    @staticmethod
-    def cipher(dest, lang, step, words):
+    def __call__(self, dest, lang, step, words, *args, **kwargs):
         ru, en = 'абвгдеёжзийклмнопрстуфхцчшщъыьэюя', 'abcdefghijklmnopqrstuvwxyz'
-        coded, lang = '', [ru, en][['RU', 'EN'].index(lang)]
+        lang, coded = [ru, en][['RU', 'EN'].index(lang)], ''
         for letter in words:
             upper, letter = letter.isupper(), letter.lower()
-            letter = lang[(lang.index(letter) + [step, -step][['E', 'D'].index(dest)]) % len(lang)] if letter in lang\
+            letter = lang[(lang.index(letter) + [step, -step][['E', 'D'].index(dest)]) % len(lang)] if letter in lang \
                 else letter
             coded += [letter, letter.upper()][upper]
         return coded
 
 
 class Run:
-    def __init__(self):
+    def __call__(self, *args, **kwargs):
         print('Приветствую! Сейчас мы будем работать с Шифром Цезаря.')
-
         while True:
             dest = self.get('Зашифровать или дешифровать? E/D', ['E', 'D'])
             lang = self.get('На каком языке? RU/EN', ['RU', 'EN'])
@@ -24,15 +22,16 @@ class Run:
             print('Какую фразу необходимо обработать?')
             words = input()
 
+            cipher = Caesar()
             print(f'''Послание:
-{Caesar.cipher(dest, lang, step, words)} (ROT{step})''')
+{cipher(dest, lang, step, words)} (ROT{step})''')
 
             if self.exit() == 'N':
                 print('До свидания!')
                 break
 
     @staticmethod
-    def get(phrase:str, choice:[list, int]):
+    def get(phrase: str, choice: [list, int]):
         while True:
             print(phrase)
             out = input().upper()
@@ -54,4 +53,5 @@ class Run:
 
 
 if __name__ == '__main__':
-    Run()
+    run = Run()
+    run()

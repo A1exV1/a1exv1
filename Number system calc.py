@@ -4,7 +4,7 @@ class NumberCalc:
         self.to_sys = to_sys if to_sys == 'R' else int(to_sys)
         self.numb = numb
 
-    def run(self):
+    def __call__(self, *args, **kwargs):
         self.numb = self.to_int() if self.from_sys in [2, 8, 16] \
             else self.roman_to_int() if self.from_sys == 'R' else self.numb
         self.numb = self.int_to_roman() if self.to_sys == 'R' \
@@ -38,15 +38,17 @@ class NumberCalc:
 
 class Run:
     def __init__(self):
-        print('Приветствую! Это калькулятор систем счисления.')
+        self.from_sys = None
 
+    def __call__(self, *args, **kwargs):
+        print('Приветствую! Это калькулятор систем счисления.')
         while True:
             self.from_sys = self.get_from_sys()
             to_sys = self.get_to_sys()
             numb = self.get_numb()
 
             calc = NumberCalc(self.from_sys, to_sys, numb)
-            print(calc.run())
+            print(calc())
 
             if self.exit() == 'N':
                 print('До свидания!')
@@ -104,4 +106,5 @@ class Run:
 
 
 if __name__ == '__main__':
-    Run()
+    run = Run()
+    run()
