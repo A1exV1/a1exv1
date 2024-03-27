@@ -1,3 +1,1 @@
-x = float('inf')
-
-print(x)
+New linecache
